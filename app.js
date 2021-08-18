@@ -40,7 +40,7 @@ passport.deserializeUser(function (obj, done) {
 
 passport.use(new FacebookStrategy({
     clientID: 'Your App ID',
-    clientSecret: 'Your client Secret',
+    clientSecret: 'Your secret ID',
     callbackURL: "http://localhost:3000/facebook/callback"
   },
 
@@ -80,6 +80,7 @@ app.get('/login', (req, res) => {
 
 app.get('/logout', function(req, res){
     req.logout();
+    req.session.destroy();
     res.redirect('/');
 });
 
