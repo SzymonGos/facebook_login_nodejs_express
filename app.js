@@ -11,6 +11,9 @@ let FacebookStrategy = require('passport-facebook').Strategy
 let cookieParser = require('cookie-parser');
 let session = require('express-session');
 
+// set the view engine to ejs
+app.set('view engine', 'ejs');
+
 // app.use: register chain of middlewares before executing any end route logic
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
