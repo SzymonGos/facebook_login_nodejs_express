@@ -51,7 +51,8 @@ app.listen(3000, () => console.log('App listening on port 3000'));
 
 // Setup on given routes when requested by get htttp
 app.get('/', (req, res) => {
-    res.send('Home - Hello')
+    res.render('pages/index');
+    // res.send('Home - Hello')
 })
 
 app.get('/account', ensureAuthenticated, function(req, res){
@@ -69,7 +70,7 @@ app.get('/facebook/callback',
 );
 
 app.get('/login', (req, res) => {
-    res.send('Go to: localhost:3000/auth/facebook')
+    res.render('pages/login');
 })
 
 app.get('/logout', function(req, res){
