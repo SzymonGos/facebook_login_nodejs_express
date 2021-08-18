@@ -3,9 +3,16 @@
 <head>
     <%- include('../partials/head.ejs'); %>
 </head>
-<body>
-    
-    <h1>Home Pag</h1>
-
+<body class="container">
+    <header>
+        <%- include('../partials/menu.ejs'); %>
+    </header>
+    <div class="container d-flex flex-column  align-items-center jumbotron">
+        <h1>Home Page</h1>
+        <div class="underline"></div>
+    </div>
+    <footer>
+        <%- include('../partials/footer.ejs'); %>
+    </footer>
 </body>
 </html>

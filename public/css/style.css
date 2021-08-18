@@ -1,0 +1,12 @@
+body { 
+    margin-top:50px; 
+    color: #3e3e3e;
+}
+
+.underline {
+    width: 2rem;
+    height: .3rem;
+    background-color: #747474;
+    margin: 1rem 0 2rem;
+}
+

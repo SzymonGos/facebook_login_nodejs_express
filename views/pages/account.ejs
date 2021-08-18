@@ -3,7 +3,17 @@
 <head>
     <%- include('../partials/head.ejs'); %>
 </head>
-<body>
-    <h1>Account page</h1>
+<body class="container">
+    <header>
+        <%- include('../partials/menu.ejs'); %>
+    </header>
+    <div class="container jumbotron d-flex flex-column  align-items-center">
+        <h1>Your Account</h1>
+        <div class="underline"></div>
+        <h3>Hello, <%= user %>.</h3>
+    </div>
+    <footer>
+        <%- include('../partials/footer.ejs'); %>
+    </footer>
 </body>
 </html>

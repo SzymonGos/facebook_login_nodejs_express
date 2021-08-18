@@ -14,6 +14,10 @@ let session = require('express-session');
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
+// Static Files
+app.use(express.static('public'))
+app.use('/css', express.static(__dirname + 'public/css'))
+
 // app.use: register chain of middlewares before executing any end route logic
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -36,7 +40,7 @@ passport.deserializeUser(function (obj, done) {
 
 passport.use(new FacebookStrategy({
     clientID: 'Your App ID',
-    clientSecret: 'Your App Secret',
+    clientSecret: 'Your client Secret',
     callbackURL: "http://localhost:3000/facebook/callback"
   },
 
@@ -52,11 +56,10 @@ app.listen(3000, () => console.log('App listening on port 3000'));
 // Setup on given routes when requested by get htttp
 app.get('/', (req, res) => {
     res.render('pages/index');
-    // res.send('Home - Hello')
 })
 
 app.get('/account', ensureAuthenticated, function(req, res){
-    res.send('Hello: ' + req.user.displayName)
+    res.render('pages/account', {user: req.user.displayName})
 });
   
 app.get('/auth/facebook', passport.authenticate('facebook',{scope:'email'}));
@@ -70,7 +73,9 @@ app.get('/facebook/callback',
 );
 
 app.get('/login', (req, res) => {
-    res.render('pages/login');
+    res.render('pages/login', {
+        loginLink: "/auth/facebook"
+    });
 })
 
 app.get('/logout', function(req, res){
