@@ -33,17 +33,17 @@ Third, passport authentication used in this code is extremely flexible and can b
 
 Home page
 <p align='center'>
-    <img src='public/imgs/home.png' width='400'>
+    <img src='public/imgs/home.png' width='600'>
 </p>
 
 Login Page
 <p align='center'>
-    <img src='public/imgs/login.png' width='400'>
+    <img src='public/imgs/login.png' width='600'>
 </p>
 
 Account Page
 <p align='center'>
-    <img src='public/imgs/account.png' width='400'>
+    <img src='public/imgs/account.png' width='600'>
 </p>
 
 ### Something To Read
