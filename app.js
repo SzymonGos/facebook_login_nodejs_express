@@ -40,7 +40,7 @@ passport.deserializeUser(function (obj, done) {
 
 passport.use(new FacebookStrategy({
     clientID: 'Your App ID',
-    clientSecret: 'Your secret ID',
+    clientSecret: 'Your Secret ID',
     callbackURL: "http://localhost:3000/facebook/callback"
   },
 
