@@ -10,7 +10,8 @@ let passport = require('passport');
 let FacebookStrategy = require('passport-facebook').Strategy
 let cookieParser = require('cookie-parser');
 let session = require('express-session');
-
+let dotnenv = require('dotenv');
+dotnenv.config();
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
@@ -39,9 +40,9 @@ passport.deserializeUser(function (obj, done) {
 });
 
 passport.use(new FacebookStrategy({
-    clientID: 'Your App ID',
-    clientSecret: 'Your Secret ID',
-    callbackURL: "http://localhost:3000/facebook/callback"
+    clientID: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    callbackURL: process.env.CALLBACK_URL
   },
 
   function(accessToken, refreshToken, profile, done) {
@@ -51,7 +52,7 @@ passport.use(new FacebookStrategy({
   }
 ));
 // Bind and listen the connection 
-app.listen(3000, () => console.log('App listening on port 3000'));
+app.listen(process.env.PORT);
 
 // Setup on given routes when requested by get htttp
 app.get('/', (req, res) => {
@@ -80,7 +81,7 @@ app.get('/login', (req, res) => {
 
 app.get('/logout', function(req, res){
     req.logout();
-    req.session.destroy();
+    // req.session.destroy();
     res.redirect('/');
 });
 
