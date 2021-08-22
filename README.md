@@ -31,6 +31,8 @@ Update: I was screening the `app.js` and I noticed that I have to read line by l
 
 6. The app is running on port 3000, `http://localhost:3000/`
 
+7. Optional: to remove git, type command `rm -rf .git`
+
 ## Results 
 
 Home page
